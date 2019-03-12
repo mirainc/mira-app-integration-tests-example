@@ -4,8 +4,6 @@
   "private": true,
   "dependencies": {
     "mira-kit": "^3.11.0",
-    "mira-scripts": "^3.11.0",
-    "netlify-cli": "^1.2.2",
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0"
@@ -14,7 +12,19 @@
     "start": "mira-scripts start",
     "build": "mira-scripts build",
     "static": "mira-scripts static",
+    "test:integration": "HEADLESS=false npx react-scripts test --verbose --runInBand --testMatch='<rootDir>/integration/**/?(*.)(spec|test).{js,jsx}'",
+    "test:integration:headless": "npx react-scripts test --verbose --testMatch='<rootDir>/integration/**/?(*.)(spec|test).{js,jsx}'",
+    "test:integration:ci": "tasks/test-integration.bash",
     "deploy": "mira-scripts deploy",
-    "deploy-static": "netlify deploy -t $NETLIFY_TOKEN"
+    "deploy:staging": "tasks/deploy-staging.bash",
+    "deploy:production": "tasks/deploy-production.bash",
+    "deploy-static": "netlify deploy -t $NETLIFY_TOKEN",
+    "encryptenv": "jet encrypt docker/deploy.env docker/deploy.env.encrypted --key-path=mirainc_mira-app-integration-tests-example.aes",
+    "decryptenv": "jet decrypt docker/deploy.env.encrypted docker/deploy.env --key-path=mirainc_mira-app-integration-tests-example.aes"
+  },
+  "devDependencies": {
+    "mira-scripts": "^3.11.0",
+    "netlify-cli": "^1.2.2",
+    "puppeteer": "^1.13.0"
   }
 }

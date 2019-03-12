@@ -1,5 +1,7 @@
 ### Weather - Example Mira App
 
+[![Codeship Status for mirainc/mira-app-integration-tests-example](https://app.codeship.com/projects/993bcae0-2728-0137-5fbe-2a710956fdda/status?branch=staging)](https://app.codeship.com/projects/330552)
+
 Display local weather conditions.
 
 #### Presentation Properties

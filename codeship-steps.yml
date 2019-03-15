@@ -1,0 +1,17 @@
+- type: serial
+  steps:
+    - type: parallel
+      service: app
+      steps:
+        - command: yarn test:integration:ci
+        - command: yarn build
+    - type: serial
+      tag: ^(staging)
+      service: app
+      steps:
+        - command: yarn deploy:staging
+    - type: serial
+      tag: ^(production)
+      service: app
+      steps:
+        - command: yarn deploy:production

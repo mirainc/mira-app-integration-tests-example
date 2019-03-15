@@ -19,3 +19,4 @@ The following commands can be run from the project directory.
 * `npm run deploy`: Deploy the app to the dashboard
 * `npm run static`: Build the app with the simulator
 * `npm run deploy-static`: Deploy the static build to netlify
+* `npm run test:integration`: Run integration tests (must run `npm run static` first)

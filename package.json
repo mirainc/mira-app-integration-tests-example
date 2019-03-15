@@ -12,8 +12,8 @@
     "start": "mira-scripts start",
     "build": "mira-scripts build",
     "static": "mira-scripts static",
-    "test:integration": "HEADLESS=false npx react-scripts test --verbose --runInBand --testMatch='<rootDir>/integration/**/?(*.)(spec|test).{js,jsx}'",
-    "test:integration:headless": "npx react-scripts test --verbose --testMatch='<rootDir>/integration/**/?(*.)(spec|test).{js,jsx}'",
+    "test:integration": "npx react-scripts test --verbose --runInBand --testMatch='<rootDir>/integration/**/?(*.)(spec|test).{js,jsx}'",
+    "test:integration:headless": "HEADLESS=true npx react-scripts test --verbose --testMatch='<rootDir>/integration/**/?(*.)(spec|test).{js,jsx}'",
     "test:integration:ci": "tasks/test-integration.bash",
     "deploy": "mira-scripts deploy",
     "deploy:staging": "tasks/deploy-staging.bash",
@@ -23,6 +23,8 @@
     "decryptenv": "jet decrypt docker/deploy.env.encrypted docker/deploy.env --key-path=mirainc_mira-app-integration-tests-example.aes"
   },
   "devDependencies": {
+    "koa": "^2.7.0",
+    "koa-static": "^5.0.0",
     "mira-scripts": "^3.11.0",
     "netlify-cli": "^1.2.2",
     "puppeteer": "^1.13.0"

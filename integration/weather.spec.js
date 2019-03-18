@@ -1,8 +1,8 @@
 import path from "path";
-import MockDevice from "./utils/MockDevice";
-import $exists from "./utils/puppeteer/helpers/$exists";
-import $text from "./utils/puppeteer/helpers/$text";
-import getTextContent from "./utils/puppeteer/helpers/getTextContent";
+import MockDevice from "mira-mock-device";
+import $exists from "./utils/puppeteer/$exists";
+import $text from "./utils/puppeteer/$text";
+import getTextContent from "./utils/puppeteer/getTextContent";
 
 // set test timeout to 20 seconds (default is 5 seconds)
 jest.setTimeout(20 * 1000);

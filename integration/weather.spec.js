@@ -1,7 +1,7 @@
 import path from "path";
 import MockDevice from "mira-mock-device";
 import $exists from "./utils/puppeteer/$exists";
-import $text from "./utils/puppeteer/$text";
+import $textExists from "./utils/puppeteer/$textExists";
 import getTextContent from "./utils/puppeteer/getTextContent";
 
 // set test timeout to 20 seconds (default is 5 seconds)
@@ -77,7 +77,7 @@ describe("weather app", () => {
       duration: 5
     });
 
-    expect(await $text(app, "Sorry, unable to display this content."));
+    await $textExists(app, "Sorry, unable to display this content.");
   });
 
   it("should call onComplete handler after given duration", async () => {
